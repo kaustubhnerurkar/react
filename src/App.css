@@ -1,0 +1,18 @@
+.App {
+  text-align: center;
+}
+
+#comment_container{
+  width:30%;
+  background-color:#FF9800;
+  margin: 0px auto;
+}
+
+#comment_txt{
+  border:1px solid #d2d2d2;
+  padding:5px;
+}
+
+#comment_container button{
+  margin:5px;
+}

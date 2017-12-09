@@ -8,27 +8,27 @@ export default class Comment extends Component {
             editing: false,
             input:this.props.children
         };
-        this.handleChange=this.handleChange.bind(this);
+        this.handleChange=this.handleChange;
     }
 
-    edit() {
+    edit=()=> {
         this.setState({
             editing: true
         })
     }
 
-    delete() {
+    delete=()=> {
         this.props.delete(this.props.index);
     }
 
-    save() {
+    save=()=> {
         this.props.update(this.state.input,this.props.index);
         this.setState({
             editing: false
         })
     }
 
-    handleChange(event) {
+    handleChange=(event)=> {
         this.setState({ input: event.target.value });
        // console.log(this.state.input);
     }
@@ -37,8 +37,8 @@ export default class Comment extends Component {
         return (
             <div id="comment_container">
                 <div id="comment_txt">{this.props.children}</div>
-                <button onClick={() => this.edit()}>Edit</button>
-                <button onClick={() => this.delete()}>Delete</button>
+                <button onClick={this.edit}>Edit</button>
+                <button onClick={this.delete}>Delete</button>
             </div>
         );
     }
@@ -47,7 +47,7 @@ export default class Comment extends Component {
         return (
             <div id="comment_container">
                 <textarea id="comment_txt" onChange={this.handleChange} defaultValue={this.props.children}></textarea>
-                <button onClick={() => this.save()}>Save</button>
+                <button onClick={this.save}>Save</button>
             </div>
         );
     }
